@@ -11,7 +11,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308094233) do
+ActiveRecord::Schema.define(:version => 20130311085131) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "postal_code"
+    t.string   "email"
+    t.string   "phone_no"
+    t.string   "image_url"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "clients_products", :id => false, :force => true do |t|
+    t.integer "client_id"
+    t.integer "product_id"
+  end
+
+  create_table "product_prices", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "client_id"
+    t.float    "price"
+    t.integer  "discount"
+    t.date     "valid_from"
+    t.date     "valid_to"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "sku"
+    t.string   "name"
+    t.text     "description"
+    t.string   "image_url"
+    t.boolean  "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "products_categories", :force => true do |t|
+    t.integer "product_id"
+    t.integer "category_id"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
