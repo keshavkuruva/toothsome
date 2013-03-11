@@ -12,5 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.slider
 //= require bootstrap
 //= require_tree .
+$(function() {
+     $( "#slider" ).slider({
+       range:"max",
+       min:10,
+       max:199,
+       slide:function(event,ui) {
+         $('.min').text(ui.value);
+       }
+     });
+});

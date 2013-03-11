@@ -1,4 +1,15 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+.row-fluid
+  .span4
+    .well
+      #price_text Search by price
+      %br
+      #slider
+      #price_range
+        %span{:class => "label min"} 10 
+        %span{:class => "label max"} 199
+          
+  .span8
+    .hero-unit
+      %h2 world
+
+
