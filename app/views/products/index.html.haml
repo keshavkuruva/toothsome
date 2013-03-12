@@ -1,0 +1,11 @@
+%h3 Products
+%div.row-fluid
+  %ul.thumbnails
+    - @products.each do |product| 
+      %li.span3
+        .thumbnail
+          %a{:href => product_path(product)}          
+            %img{"src" => "#{product.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
+          %h4
+            = product.name
+%a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path, :type => "button"} Add product
