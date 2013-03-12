@@ -1,0 +1,22 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.results{
+  margin-left: 5px;
+  margin-top: 5px;
+  font-size: 13px;
+  position: relative;
+  height: 320px;
+  width: 183px;
+}
+
+.title {
+  text-decoration: underline;
+  font-size: 13px;
+}
+.price {
+  margin-top: 7px;
+  font-size: 15px;
+  text-decoration: none;
+}
+

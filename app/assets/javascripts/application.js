@@ -22,6 +22,9 @@ $(function() {
        max:199,
        slide:function(event,ui) {
          $('.min').text(ui.value);
+       },
+       change:function(event,ui) {
+
        }
      });
 });
