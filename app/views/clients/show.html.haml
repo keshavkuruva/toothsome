@@ -1,0 +1,31 @@
+%div
+  %ul.breadcrumb
+    %li
+      %a{:href => clients_path} Clients
+      %span.divider /
+    %li.active
+      = @client.name
+  %ul.thumbnails
+    %li.span4
+      .thumbnail
+        %img{"src" => "#{@client.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
+        %h3
+          = @client.name
+
+        %p
+          = @client.description
+    %li.span4
+      .thumbnail
+        %h4 City:
+        %h6
+          = @client.city
+        %h4 Country:
+        %h6
+          = @client.country
+        %h4 Email:
+        %h6
+          = @client.email
+        %h4 Phone:
+        %h6
+          = @client.phone_no 
+        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => edit_client_path(@client), :type => "button"} Edit client info  
