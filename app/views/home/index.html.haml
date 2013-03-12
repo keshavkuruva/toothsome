@@ -1,15 +1,18 @@
 .row-fluid
-  .span4
+  .span3
     .well
-      #price_text Search by price
+      %div
+        %span#price_test  Search by price (
+        %img{:src => image_path('currency.gif')}
+        )
       %br
       #slider
       #price_range
-        %span{:class => "label min"} 10 
-        %span{:class => "label max"} 199
+        %span{:class => "min"} 10 
+        %span{:class => "max"} 199
           
-  .span8
+  .span9
     .hero-unit
-      %h2 world
+      %h2 Products
 
 
