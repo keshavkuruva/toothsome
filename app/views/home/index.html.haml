@@ -11,15 +11,6 @@
         %span{:class => "min"} 10 
         %span{:class => "max"} 199
   .span9
-    .hero-unit
-      %section
-        %ul.thumbnails
-          - @product_prices.each do | prod|
-            %li.span4
-              %a{ :href => '#', :class => "thumbnail"}
-                %img{:src => image_path('cake1.jpg')}
-                .caption
-                  %span= prod.product.name
-                  %div
-                    %img{:src => image_path('currency.gif')}
-                    = prod.price
+    .hero-unit#search_results
+      //= render :partial => "products", :locals => {:product_prices => @product_prices}
+      =render :partial => "products"

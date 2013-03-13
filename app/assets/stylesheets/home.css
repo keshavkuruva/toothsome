@@ -9,7 +9,6 @@
   height: 320px;
   width: 183px;
 }
-
 .title {
   text-decoration: underline;
   font-size: 13px;
@@ -19,4 +18,26 @@
   font-size: 15px;
   text-decoration: none;
 }
+#price_range {
+  margin-top: 5px;
+  position: relative;
+  padding-bottom: 5px;
+  color: #015b4e;
+}
+.min {
+  position: relative;
+  display: block;
+  float: left;
+  left: 0px;
+  color: #015b4e;
+}
+.max {
+  position: relative;
+  display: block;
+  float: right;
+}
+#slider .ui-slider-range { background: #e86537; }
+#slider .ui-slider-handle { border-color: #e86537; }
+
+
 

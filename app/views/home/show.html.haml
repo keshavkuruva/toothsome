@@ -1,0 +1,40 @@
+.container
+  .span12
+    .row-fluid
+      .span4
+        .well
+          %img{ "data-src" => "holder.js/360x270", :alt => "360x270", :style =>"width: 360px; height: 270px;", :src => image_path("#{@product_prices.product.image_url}")}
+          #caption
+            %span= @product_prices.product.name
+            %div
+              %img{ :src => image_path("currency.gif")}
+              = @product_prices.price
+      .row
+        .span7.offset1
+          .row-fluid
+            %h3 Address
+            %address
+              %strong= @product_prices.client.name
+              %br
+              = @product_prices.client.address_line1
+              - if @product_prices.client.address_line2
+                %br
+                = @product_prices.client.address_line2
+              %br 
+              = @product_prices.client.city + ","
+              = @product_prices.client.state 
+              %br
+              = @product_prices.client.country + ' - '
+              = @product_prices.client.postal_code
+              - if @product_prices.client.phone_no
+                %br
+                %abbr{"title" => "Phone"} P:
+                = @product_prices.client.phone_no
+            - if @product_prices.client.email
+              %address
+                %strong Full Name
+                %br
+              %a{ :href => "mailto:#" }= @product_prices.client.email
+          .row-fluid
+            .span4
+              %iframe{ :style => "width: 360px; height: 270px;" , :frameborder =>"0", :scrolling => "no", :marginheight => "0" , :marginwidth => "0" , :src => "http://dev.virtualearth.net/embeddedMap/v1/silverlight/Birdseye?zoomLevel=10&center=47.5_-122.5&pushpins=47.5_-122.5" }
