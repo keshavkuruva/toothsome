@@ -16,11 +16,13 @@ class ProductsController < ApplicationController
   end
 
   def create
+    logger.info "SUMANTH:" + params.inspect
     @product_price_info = params[:product].delete(:product_price)
     product = Product.new(params[:product])
     product.save!
     set_dates_info
     price_info = product.build_product_price(@product_price_info)
+    price_info.client_id = params[:cid]
     price_info.save!
     redirect_to products_path
   end

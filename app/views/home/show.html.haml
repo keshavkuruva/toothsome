@@ -1,9 +1,15 @@
+%ul.breadcrumb
+  %li
+    %a{:href => '/'} Home
+    %span.divider /
+  %li.active
+    = @product_prices.client.name
 .container
   .span12
     .row-fluid
       .span4
         .well
-          %img{ "data-src" => "holder.js/360x270", :alt => "360x270", :style =>"width: 360px; height: 270px;", :src => image_path("#{@product_prices.product.image_url}")}
+          %img{ "data-src" => "holder.js/360x270", :alt => "#{@product_prices.product.name}", :src => image_path("#{@product_prices.product.image_url}")}
           #caption
             %span= @product_prices.product.name
             %div
@@ -18,7 +24,6 @@
               %br
               = @product_prices.client.address_line1
               - if @product_prices.client.address_line2
-                %br
                 = @product_prices.client.address_line2
               %br 
               = @product_prices.client.city + ","
@@ -34,7 +39,7 @@
               %address
                 %strong Full Name
                 %br
-              %a{ :href => "mailto:#" }= @product_prices.client.email
+                %a{ :href => "mailto:#" }= @product_prices.client.email
           .row-fluid
             .span4
-              %iframe{ :style => "width: 360px; height: 270px;" , :frameborder =>"0", :scrolling => "no", :marginheight => "0" , :marginwidth => "0" , :src => "http://dev.virtualearth.net/embeddedMap/v1/silverlight/Birdseye?zoomLevel=10&center=47.5_-122.5&pushpins=47.5_-122.5" }
+              %iframe{ :style => "width: 360px; height: 270px;" , :frameborder =>"0", :scrolling => "no", :marginheight => "0" , :marginwidth => "0" , :src => "http://dev.virtualearth.net/embeddedMap/v1/silverlight/road?zoomLevel=10&center=17.4_78.4&pushpins=17.4_78.4" }
