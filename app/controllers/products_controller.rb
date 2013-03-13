@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.client_id = params[:cid]
+    @client = Client.find(params[:cid])
   end
 
   def create
