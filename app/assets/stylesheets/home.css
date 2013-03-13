@@ -36,8 +36,15 @@
   display: block;
   float: right;
 }
+#caption {
+  text-align:center;
+  color:#004b91;
+}
+#price_info {
+  font-weight:bold;
+  color:#b00;
+}
+
 #slider .ui-slider-range { background: #e86537; }
 #slider .ui-slider-handle { border-color: #e86537; }
-
-
 

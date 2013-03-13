@@ -9,13 +9,12 @@
     .row-fluid
       .span4
         .well
-          .thumbnail
-            %img{ "data-src" => "holder.js/360x270", :alt => "#{@product_prices.product.name}", :src => image_path("#{@product_prices.product.image_url}")}
-            #caption
-              %span= @product_prices.product.name
-              %div
-                %img{ :src => image_path("currency.gif")}
-                = @product_prices.price
+          %img{ "data-src" => "holder.js/360x270", :alt => "#{@product_prices.product.name}", :src => image_path("#{@product_prices.product.image_url}")}
+          #caption
+            %span= @product_prices.product.name
+            #price_info
+              %img{ :src => image_path("currency.gif")}
+              = @product_prices.price
       .row
         .span5.offset1
           .well

@@ -10,8 +10,10 @@
             %li.span4
               %a{:href => product_info_path(prod.id) , :class => 'thumbnail'}
                 %img{"data-src" => "holder.js/300x200", :alt => "300x200", :src => "#{prod.product.image_url}"}
+                %br
                 #caption
                   %span= prod.product.name
-                  %div
+                  %br
+                  #price_info
                     %img{ :src => image_path("currency.gif")}
                     = prod.price
