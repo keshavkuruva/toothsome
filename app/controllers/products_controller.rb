@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:cid])
     @product = Product.find(params[:id])
   end
 
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @client = @product.client
     @product_price = @product.product_price
   end
 

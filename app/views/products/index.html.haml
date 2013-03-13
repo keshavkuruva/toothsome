@@ -12,7 +12,7 @@
     - @products.each do |product| 
       %li.span3
         .thumbnail
-          %a{:href => product_path(product)}          
+          %a{:href => product_path(:id => product, :cid => @client)}          
             %img{"src" => "#{product.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
           %h4
             = product.name
