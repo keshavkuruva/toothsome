@@ -19,8 +19,9 @@
     = f.simple_fields_for :product_price do |p|
       = p.input :price, required: true, input_html: {class: "input-xlarge"}
       = p.input :discount, input_html: {class: "input-xlarge"}
-      = p.input :valid_from, as: :date, start_year: Date.today.year
-      = p.input :valid_to, as: :date, start_year: Date.today.year
+      = p.input :valid_from, input_html: {id: "date_from_field"}
+      = p.input :valid_to, input_html: {id: "date_to_field"}
+      = hidden_field_tag "product[product_price][client_id]", @client.id
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}   
     = f.input :image_url, ≈input_html: {class: "input-xlarge"}    
     = f.input :status, as: :boolean, required: true

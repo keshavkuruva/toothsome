@@ -20,11 +20,10 @@ class ProductsController < ApplicationController
     @product_price_info = params[:product].delete(:product_price)
     product = Product.new(params[:product])
     product.save!
-    set_dates_info
     price_info = product.build_product_price(@product_price_info)
     price_info.client_id = params[:cid]
     price_info.save!
-    redirect_to products_path
+    redirect_to products_path(:cid => product.client_id)
   end
 
   def edit
@@ -35,27 +34,18 @@ class ProductsController < ApplicationController
 
   def update
     @product_price_info = params[:product].delete(:product_price)
-    product = Product.find(params[:id])
-    price_info = product.product_price
-    product = product.update_attributes(params[:product])
-    set_dates_info
+    @product = Product.find(params[:id])
+    price_info = @product.product_price
+    product = @product.update_attributes(params[:product])
     price_info = price_info.update_attributes(@product_price_info)
     if product and price_info
-      redirect_to products_path, :notice => "Product updated"
+      redirect_to products_path(:cid => @product.client_id), :notice => "Product updated"
     else
-      redirect_to products_path, :notice => "Unable to update the product"
+      redirect_to products_path(:cid => @product.client_id), :notice => "Unable to update the product"
     end
   end
 
   def destroy
   end
 
-  private
-
-  def set_dates_info
-    from = @product_price_info.delete("valid_from(1i)") + "-" + @product_price_info.delete("valid_from(2i)") + "-" + @product_price_info.delete("valid_from(3i)")
-
-    to = @product_price_info.delete("valid_to(1i)") + "-" + @product_price_info.delete("valid_to(2i)") + "-" + @product_price_info.delete("valid_to(3i)")
-    @product_price_info.merge(valid_from: from, valid_to: to)
-  end
 end
