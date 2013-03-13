@@ -1,0 +1,17 @@
+%div
+  %ul.breadcrumb
+    %li
+      %a{:href => products_path} Products
+      %span.divider /
+    %li.active
+      = @product.name
+  %ul.thumbnails
+    %li.span4
+      .thumbnail
+        %img{"src" => "#{@product.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
+        %h3
+          = @product.name
+
+        %p
+          = @product.description
+        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => edit_product_path(@product), :type => "button"} Edit product info  
