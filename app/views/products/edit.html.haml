@@ -16,7 +16,7 @@
     %li.active Edit
 
 = simple_form_for(@product, :url => product_path(@product), :html => {:class => 'form-horizontal', :method => :put }) do |f|
-  %fieldset
+  %fieldset.well
     = display_base_errors @product
     = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}
     = f.input :sku, :required => true, input_html: {class: "input-xlarge"}

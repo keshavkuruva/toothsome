@@ -12,7 +12,7 @@
     %li.active New
 
 = simple_form_for(@product, :url => products_path, :html => {:class => 'form-horizontal', :method => :post }) do |f|
-  %fieldset
+  %fieldset.well
     = display_base_errors @product
     = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}
     = f.input :sku, :required => true, input_html: {class: "input-xlarge"}

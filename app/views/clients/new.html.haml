@@ -1,6 +1,6 @@
-%h2 Add new client
+%h2.well Add new client
 = simple_form_for(@client, :url => clients_path, :html => {:class => 'form-horizontal', :method => :post }) do |f|
-  %fieldset
+  %fieldset.well
     = f.error_notification
     = display_base_errors @client
     = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}

@@ -10,7 +10,7 @@
     %li.active Edit pane
 
 = simple_form_for(@client, :url => client_path(@client), :html => {:class => 'form-horizontal', :method => :put }) do |f|
-  %fieldset
+  %fieldset.well
     = f.error_notification
     = display_base_errors @client
     = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}
