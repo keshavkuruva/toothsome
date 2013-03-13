@@ -1,8 +1,4 @@
 Toothsome::Application.routes.draw do
-
-  resources :clients
-  resources :products				   
-
   authenticated :user do
     root :to => 'home#index'
   end
