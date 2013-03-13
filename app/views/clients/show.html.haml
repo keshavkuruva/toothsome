@@ -28,4 +28,9 @@
         %h4 Phone:
         %h6
           = @client.phone_no 
-        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => edit_client_path(@client), :type => "button"} Edit client info  
+        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => edit_client_path(@client), :type => "button"} Edit
+    %li.span4
+      .thumbnail 
+        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client.id), :type => "button"} Add product
+        %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => products_path(:cid => @client.id), :type => "button"} List products
+    

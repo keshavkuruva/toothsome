@@ -1,11 +1,19 @@
-%h3 Products
+%div
+  %ul.breadcrumb
+    %li
+      %a{:href => clients_path} Clients
+      %span.divider /
+    %li
+      %a{:href => client_path(@client)} #{@client.name}
+      %span.divider /
+    %li.active Products      
 %div.row-fluid
   %ul.thumbnails
     - @products.each do |product| 
       %li.span3
         .thumbnail
-          %a{:href => product_path(product)}          
+          %a{:href => product_path(:id => product, :cid => @client)}          
             %img{"src" => "#{product.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
           %h4
             = product.name
-%a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path, :type => "button"} Add product
+%a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product

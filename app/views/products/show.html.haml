@@ -1,7 +1,13 @@
 %div
   %ul.breadcrumb
     %li
-      %a{:href => products_path} Products
+      %a{:href => clients_path} Clients
+      %span.divider /
+    %li
+      %a{:href => client_path(@client)} #{@client.name}
+      %span.divider /
+    %li
+      %a{:href => products_path(:cid => @client)} Products
       %span.divider /
     %li.active
       = @product.name

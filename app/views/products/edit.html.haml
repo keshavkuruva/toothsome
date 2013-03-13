@@ -1,13 +1,19 @@
 %div
   %ul.breadcrumb
     %li
-      %a{:href => products_path} Products
+      %a{:href => clients_path} Clients
+      %span.divider /
+    %li
+      %a{:href => client_path(@client)} #{@client.name}
+      %span.divider /
+    %li
+      %a{:href => products_path(:cid => @client)} Products
       %span.divider /
     %li
       %a{:href => product_path(@product)}
         = @product.name
       %span.divider /
-    %li.active Edit product
+    %li.active Edit
 
 = simple_form_for(@product, :url => product_path(@product), :html => {:class => 'form-horizontal', :method => :put }) do |f|
   %fieldset

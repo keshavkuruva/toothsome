@@ -1,15 +1,18 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @client = Client.find(params[:cid]) unless params[:cid].blank?
+    @products = @client.nil? ? Product.all : @client.products
   end
 
   def show
+    @client = Client.find(params[:cid])
     @product = Product.find(params[:id])
   end
 
   def new
     @product = Product.new
+    @client = Client.find(params[:cid])
   end
 
   def create
@@ -24,6 +27,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @client = @product.client
     @product_price = @product.product_price
   end
 
