@@ -18,4 +18,5 @@
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}   
     = f.input :image_url, ≈input_html: {class: "input-xlarge"}    
     = f.input :status, as: :boolean, required: true
+    = hidden_field_tag "product[client_id]", @product.client_id
     = f.button :submit, 'Create', :class => 'btn-primary'

@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @client = Client.find(params[:cid]) unless params[:cid].blank?
+    @products = @client.nil? ? Product.all : @client.products
   end
 
   def show
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.client_id = params[:cid]
   end
 
   def create

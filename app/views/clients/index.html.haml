@@ -18,4 +18,6 @@
           %td
             %a.btn.btn-mini{"data-toggle" => "modal", :href => edit_client_path(client), :type => "button"} Edit client
           %td= link_to("Delete client", client_path(client), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini')
+          %td
+            %a.btn.btn-mini{"data-toggle" => "modal", :href => products_path(:cid => client), :type => "button"} View products     
   %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_client_path, :type => "button"} New client
