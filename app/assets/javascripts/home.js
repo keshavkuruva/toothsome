@@ -8,8 +8,7 @@ $(function() {
        slide:function(event,ui) {
          $('.min').text(ui.value);
        },
-       change:function(_,ui) {
-         event.preventDefault();
+       change:function(event,ui) {
          $('.min').text(ui.value);
                 $.ajax({
                   url: 'home/search_by_price',
