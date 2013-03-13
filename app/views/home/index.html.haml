@@ -1,4 +1,16 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+.row-fluid
+  .span3
+    .well
+      %div
+        %span#price_test  Search by price (
+        %img{:src => image_path('currency.gif')}
+        )
+      %br
+      #slider
+      #price_range
+        %span{:class => "min"} 10 
+        %span{:class => "max"} 199
+  .span9
+    .hero-unit#search_results
+      //= render :partial => "products", :locals => {:product_prices => @product_prices}
+      =render :partial => "products"

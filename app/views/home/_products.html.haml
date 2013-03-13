@@ -1,0 +1,15 @@
+%section
+  - if @product_prices.blank?
+    %section
+      %h4 Sorry,no results found.
+  - else
+    %ul.thumbnails
+      - @product_prices.each do |prod|
+        %li.span4
+          %a{:href => product_info_path(prod.id) , :class => 'thumbnail'}
+            %img{"data-src" => "holder.js/300x200", :alt => "300x200", :src => "#{prod.product.image_url}"}
+            #caption
+              %span= prod.product.name
+              %div
+                %img{ :src => image_path("currency.gif")}
+                = prod.price

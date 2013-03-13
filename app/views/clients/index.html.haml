@@ -1,0 +1,23 @@
+.span11
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Phone
+        %th Country
+        %th
+        %th
+    %tbody
+      - @clients.each do |client|
+        %tr
+          %td= link_to client.name, client
+          %td= client.email
+          %td= client.phone_no
+          %td= client.country
+          %td
+            %a.btn.btn-mini{"data-toggle" => "modal", :href => edit_client_path(client), :type => "button"} Edit client
+          %td= link_to("Delete client", client_path(client), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini')
+          %td
+            %a.btn.btn-mini{"data-toggle" => "modal", :href => products_path(:cid => client), :type => "button"} View products     
+  %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_client_path, :type => "button"} New client

@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.slider
 //= require bootstrap
 //= require_tree .
+
+
+$(function(){
+	new JsDatePick({useMode:2, target:"date_from_field", dateFormat:"%Y-%m-%d"});
+	new JsDatePick({useMode:2, target:"date_to_field", dateFormat:"%Y-%m-%d"});     
+});
