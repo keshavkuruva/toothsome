@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:cid])
     @product = Product.find(params[:id])
+    @client = @product.client
   end
 
   def new
