@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :photo, :name, :sku, :status, :client_id, :deal_type, :photo_file_name
+  attr_accessible :description, :photo, :name, :sku, :status, :client_id, :deal_type, :photo_file_name, :days
   belongs_to :client
   has_one :product_price
   has_and_belongs_to_many :categories
