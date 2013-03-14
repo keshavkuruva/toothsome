@@ -23,6 +23,7 @@
       = p.input :valid_to, as: :string, input_html: {id: "date_to_field", required: "required"}
       = hidden_field_tag "product[product_price][client_id]", @client.id
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
+    = f.input :tag_list, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
     = f.input :photo, input_html: {required: "required"}    
     = f.input :status, as: :boolean, required: true
     = hidden_field_tag "product[client_id]", @client.id

@@ -10,6 +10,10 @@
       #price_range
         %span{:class => "min"} 10 
         %span{:class => "max"} 199
+    .well
+      #tag_cloud
+        - tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| 
+          = link_to tag.name, tag_path(tag.name), :class => css_class
   .span9
     #search_results
       //= render :partial => "products", :locals => {:product_prices => @product_prices}

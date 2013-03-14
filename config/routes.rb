@@ -1,5 +1,5 @@
 Toothsome::Application.routes.draw do
-
+  get 'tags/:tag', to: 'home#index', as: :tag
   resources :clients
   resources :products				   
 

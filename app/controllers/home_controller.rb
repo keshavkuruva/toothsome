@@ -1,6 +1,19 @@
 class HomeController < ApplicationController
   def index
-    @product_prices = ProductPrice.includes(:products).find_by_sql("select * from clients c,products p,product_prices pp where c.id = pp.client_id and p.id = pp.product_id");
+    if params[:tag]
+      #
+      #dirty hack here, need to find the better solution
+      #
+      products = Product.tagged_with(params[:tag])
+      arr = ''
+      products.each do |row|
+        arr += row.id.to_s + ','
+      end
+      arr.chop! 
+      @product_prices = ProductPrice.includes(:products).find_by_sql("select * from product_prices where product_id in (#{arr})")
+    else
+      @product_prices = ProductPrice.includes(:products).find_by_sql("select * from clients c,products p,product_prices pp where c.id = pp.client_id and p.id = pp.product_id")
+    end
   end
 
   def search_by_price

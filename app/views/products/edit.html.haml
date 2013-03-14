@@ -26,6 +26,7 @@
       = p.input :valid_from, as: :string, input_html: {id: "date_from_field", required: "required"}
       = p.input :valid_to, as: :string, input_html: {id: "date_to_field", required: "required"}
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
+    = f.input :tag_list, input_html: {class: "input-xlarge", rows: "5", required: "required"}
     - if @product.photo?
       = image_tag @product.photo.url(:medium)
     = f.file_field :photo, input_html: {required: "required"}

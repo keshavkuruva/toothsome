@@ -29,7 +29,7 @@ $(function() {
        }
      });
 
-     $(document).on('click','.thumbnail',function (event) {
+     $(document).on('click','.button',function (event) {
        event.preventDefault();
        $('#element_to_pop_up').bPopup({
                 content:'ajax',
