@@ -33,7 +33,7 @@ $(function() {
        event.preventDefault();
        $('#element_to_pop_up').bPopup({
                 content:'ajax',
-                loadUrl:'/product_info/6',
+                loadUrl:$(this).attr('href'),
                 speed: 450,
                 position:["50px","50px"],
                 transition: 'slideIn',

@@ -9,12 +9,12 @@
           - row.each do |prod|
             %li.span4
               %a{:href => product_info_path(prod.id) , :class => 'thumbnail button'}
-              - if prod.product.photo.exists?
-                = image_tag prod.product.photo.url(:medium)
-                %br
-                #caption
-                  %span= prod.product.name
+                - if prod.product.photo.exists?
+                  = image_tag prod.product.photo.url(:medium)
                   %br
-                  #price_info
-                    %img{ :src => image_path("currency.gif")}
-                    = prod.price
+                  #caption
+                    %span= prod.product.name
+                    %br
+                    #price_info
+                      %img{ :src => image_path("currency.gif")}
+                      = prod.price
