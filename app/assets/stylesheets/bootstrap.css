@@ -620,6 +620,7 @@ a:focus {
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
+  opacity: 0.9;
 }
 
 .container:before,
