@@ -3,7 +3,7 @@
     .row-fluid
       .span4
         .well
-          %img{ "data-src" => "holder.js/360x270", :alt => "#{@product_prices.product.name}", :src => image_path("#{@product_prices.product.image_url}")}
+          %img{:alt => "#{@product_prices.product.name}", :src => image_path("#{@product_prices.product.photo.url}")}
           #caption
             %span= @product_prices.product.name
             #price_info

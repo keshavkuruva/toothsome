@@ -9,7 +9,8 @@
           - row.each do |prod|
             %li.span4
               %a{:href => product_info_path(prod.id) , :class => 'thumbnail button'}
-                %img{"data-src" => "holder.js/300x200", :alt => "300x200", :src => "#{prod.product.image_url}"}
+              - if prod.product.photo.exists?
+                = image_tag prod.product.photo.url(:medium)
                 %br
                 #caption
                   %span= prod.product.name

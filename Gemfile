@@ -27,4 +27,5 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'jquery-ui-rails'
 gem "seed_dump", "~> 0.4.2"
 gem 'acts-as-taggable-on'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 

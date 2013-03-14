@@ -13,5 +13,5 @@
     = f.input :postal_code, :required => true, input_html: {class: "input-xlarge"}
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}
     = f.input :phone_no, required: true, input_html: {class: "input-xlarge"}
-    = f.input :image_url, input_html: {class: "input-xlarge"}
+    = f.file_field :photo
     = f.button :submit, 'Add', :class => 'btn-primary'

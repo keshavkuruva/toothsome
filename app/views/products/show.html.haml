@@ -14,8 +14,9 @@
   %ul.thumbnails
     %li.span4
       .thumbnail
-        %img{"src" => "#{@product.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
-        %h3
+        - if @product.photo.exists?
+          = image_tag @product.photo.url(:medium)
+          %h3
           = @product.name
 
         %p

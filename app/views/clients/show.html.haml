@@ -8,7 +8,8 @@
   %ul.thumbnails
     %li.span4
       .thumbnail
-        %img{"src" => "#{@client.image_url}", "alt" => "Image", "data-src" => "holder.js/300x200"}
+        - if @client.photo.exists?
+          = image_tag @client.photo.url(:medium)
         %h3
           = @client.name
 
