@@ -16,14 +16,29 @@ class ProductsController < ApplicationController
   end
 
   def create
-    logger.info "SUMANTH:" + params.inspect
-    @product_price_info = params[:product].delete(:product_price)
-    product = Product.new(params[:product])
-    product.save!
-    price_info = product.build_product_price(@product_price_info)
-    price_info.client_id = params[:product][:client_id]
-    price_info.save!
-    redirect_to products_path(:cid => product.client_id)
+    price_info = params[:product].delete(:product_price)
+    days_info = params[:product].delete(:days)
+    @product = Product.new(params[:product])
+
+    @product_price = @product.build_product_price(price_info)
+    @product_price.client_id = params[:product][:client_id]
+
+    if @product.valid? and @product_price.valid?
+      @product.save!
+      @product_price.save!
+      if @product.deal_type == true
+        days_info.shift
+        days_info.each do |day|
+          d = DealDay.new(name: day)
+          d.product_id = @product.id
+          d.save!
+          puts "==========> #{d.product_id}"
+        end
+      end
+      redirect_to products_path(:cid => @product.client_id)
+    else
+       @client = @product.client
+    end
   end
 
   def edit

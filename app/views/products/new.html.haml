@@ -19,11 +19,13 @@
     = f.simple_fields_for :product_price do |p|
       = p.input :price, required: true, input_html: {class: "input-xlarge"}
       = p.input :discount, input_html: {class: "input-xlarge"}
-      = p.input :valid_from, input_html: {id: "date_from_field"}
-      = p.input :valid_to, input_html: {id: "date_to_field"}
+      = p.input :valid_from, as: :string, input_html: {id: "date_from_field"}
+      = p.input :valid_to, as: :string, input_html: {id: "date_to_field"}
       = hidden_field_tag "product[product_price][client_id]", @client.id
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}   
-    = f.file_field :photo
+    = f.input :photo    
     = f.input :status, as: :boolean, required: true
     = hidden_field_tag "product[client_id]", @client.id
+    = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )"
+    = f.input :days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], input_html: {multiple: "multiple"}
     = f.button :submit, 'Create', :class => 'btn-primary'
