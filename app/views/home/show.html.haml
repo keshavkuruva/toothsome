@@ -1,9 +1,3 @@
-%ul.breadcrumb
-  %li
-    %a{:href => '/'} Home
-    %span.divider /
-  %li.active
-    = @product_prices.client.name
 .container
   .span12
     .row-fluid
@@ -41,6 +35,3 @@
                   %strong Email
                   %br
                   %a{ :href => "mailto:#" }= @product_prices.client.email
-            .row-fluid
-              .span4
-                %iframe{ :style => "width: 360px; height: 270px;" , :frameborder =>"0", :scrolling => "no", :marginheight => "0" , :marginwidth => "0" , :src => "http://dev.virtualearth.net/embeddedMap/v1/silverlight/road?zoomLevel=10&center=17.4_78.4&pushpins=17.4_78.4" }

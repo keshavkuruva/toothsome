@@ -8,7 +8,7 @@
         %ul.thumbnails
           - row.each do |prod|
             %li.span4
-              %a{:href => product_info_path(prod.id) , :class => 'thumbnail'}
+              %a{:href => product_info_path(prod.id) , :class => 'thumbnail button'}
                 %img{"data-src" => "holder.js/300x200", :alt => "300x200", :src => "#{prod.product.image_url}"}
                 %br
                 #caption

@@ -28,4 +28,16 @@ $(function() {
                 });
        }
      });
+
+     $(document).on('click','.thumbnail',function (event) {
+       event.preventDefault();
+       $('#element_to_pop_up').bPopup({
+                content:'ajax',
+                loadUrl:'/product_info/6',
+                speed: 450,
+                position:["50px","50px"],
+                transition: 'slideIn',
+                 });
+       return false;
+     });
 });
