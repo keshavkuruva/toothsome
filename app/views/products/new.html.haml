@@ -11,19 +11,19 @@
       %span.divider /
     %li.active New
 
-= simple_form_for(@product, :url => products_path, :html => {:class => 'form-horizontal', :method => :post }) do |f|
+= simple_form_for(@product, :url => products_path, :html => {:class => 'form-horizontal', :method => :post, :novalidate => false}) do |f|
   %fieldset.well
     = display_base_errors @product
-    = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}
-    = f.input :sku, :required => true, input_html: {class: "input-xlarge"}
+    = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :sku, :required => true, input_html: {class: "input-xlarge", required: "required"}
     = f.simple_fields_for :product_price do |p|
-      = p.input :price, required: true, input_html: {class: "input-xlarge"}
-      = p.input :discount, input_html: {class: "input-xlarge"}
-      = p.input :valid_from, as: :string, input_html: {id: "date_from_field"}
-      = p.input :valid_to, as: :string, input_html: {id: "date_to_field"}
+      = p.input :price, required: true, input_html: {class: "input-xlarge", required: "required"}
+      = p.input :discount, input_html: {class: "input-xlarge", required: "required"}
+      = p.input :valid_from, as: :string, input_html: {id: "date_from_field", required: "required"}
+      = p.input :valid_to, as: :string, input_html: {id: "date_to_field", required: "required"}
       = hidden_field_tag "product[product_price][client_id]", @client.id
-    = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}   
-    = f.input :photo    
+    = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
+    = f.input :photo, input_html: {required: "required"}    
     = f.input :status, as: :boolean, required: true
     = hidden_field_tag "product[client_id]", @client.id
     = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )"
