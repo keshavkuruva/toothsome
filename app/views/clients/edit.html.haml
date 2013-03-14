@@ -13,16 +13,16 @@
   %fieldset.well
     = f.error_notification
     = display_base_errors @client
-    = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge"}
-    = f.input :email, :required => true, input_html: {class: "input-xlarge"}
-    = f.input :address_line1, required: true, input_html: {class: "input-xlarge"}
-    = f.input :address_line2, required:true, input_html: {class: "input-xlarge"}
-    = f.input :city, :required => true, input_html: {class: "input-xlarge"}
-    = f.input :state, :required => true, input_html: {class: "input-xlarge"}
-    = f.input :country, collection: [ "Australia", "Brazil", "India", "New Zealand"], :required => true
-    = f.input :postal_code, :required => true, input_html: {class: "input-xlarge"}
-    = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5"}
-    = f.input :phone_no, required: true, input_html: {class: "input-xlarge"}
+    = f.input :name, required: true, autofocus: true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :email, :required => true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :address_line1, required: true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :address_line2, required:true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :city, :required => true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :state, :required => true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :country, collection: [ "Australia", "Brazil", "India", "New Zealand"], :required => true, input_html: {required: "required"}
+    = f.input :postal_code, :required => true, input_html: {class: "input-xlarge", required: "required"}
+    = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5", required: "required"}
+    = f.input :phone_no, required: true, input_html: {class: "input-xlarge", required: "required"}
     - if @client.photo?
       = image_tag @client.photo.url(:medium)
     = f.file_field :photo
