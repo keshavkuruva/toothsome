@@ -15,6 +15,11 @@
           .thumbnail
             %a{:href => product_path(:id => product, :cid => @client)}          
               %img{"src" => "#{product.photo.url}"}
-            %h4
-              = product.name
+            %br
+            #caption
+              %span= product.name
+              %br
+              #price_info
+                %img{ :src => image_path("currency.gif")}
+                = product.product_price.price
 %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
