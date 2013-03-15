@@ -23,6 +23,13 @@ class HomeController < ApplicationController
     render :layout => false if request.xhr?
   end
 
+  def search_products
+    @products = Product.all(:conditions => ["name like ?", "%#{params[:query]}%"])
+    respond_to do |format|
+      format.json { render :json => @products.as_json(:only => [:name])}
+    end
+  end
+
   def show
     @product_prices = ProductPrice.includes(:product,:client).find(params[:id])
     render :layout => false if request.xhr?
