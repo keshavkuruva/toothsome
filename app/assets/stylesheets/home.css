@@ -48,3 +48,16 @@
 #slider .ui-slider-range { background: #e86537; }
 #slider .ui-slider-handle { border-color: #e86537; }
 
+#homepage_day_selector{height: 282px;}
+#homepage_day_selector .days{margin-left:10px;width: 60px;min-height:100px;float:left;}
+#homepage_day_selector .day{border-radius: 35px;width: 50px;margin-bottom:2px;padding: 10px 0px 10px 0px;text-align: center;cursor: pointer;}
+#homepage_day_selector .img-div{float:left;width: 100px;}
+#homepage_day_selector .day:hover{background-color: white;}
+#homepage_day_selector .day.sun{background-color: red;}
+#homepage_day_selector .day.mon{background-color: blue;}
+#homepage_day_selector .day.tue{background-color: green;}
+#homepage_day_selector .day.wed{background-color: yellow;}
+#homepage_day_selector .day.thu{background-color: red;}
+#homepage_day_selector .day.fri{background-color: green;}
+#homepage_day_selector .day.sat{background-color: blue;}
+#homepage_day_selector .img-div .text{width:60px;color: #dd4814;}
