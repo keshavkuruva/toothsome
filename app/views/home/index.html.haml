@@ -14,17 +14,6 @@
       #tag_cloud
         - tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| 
           = link_to tag.name, tag_path(tag.name), :class => css_class
-    #homepage_day_selector.well
-      .img-div
-        .text.well Deals of the day
-      .days
-        .day.sun Sun
-        .day.mon Mon
-        .day.tue Tue
-        .day.wed Wed
-        .day.thu Thu
-        .day.fri Fri
-        .day.sat Sat
   .span9
     #search_results
       //= render :partial => "products", :locals => {:product_prices => @product_prices}

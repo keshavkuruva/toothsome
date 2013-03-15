@@ -30,7 +30,11 @@
     - if @product.photo?
       = image_tag @product.photo.url(:medium)
     = f.file_field :photo, input_html: {required: "required"}
-    = f.input :status, as: :boolean, required: true
-    = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )"
-    = f.input :days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], input_html: {multiple: "multiple"}
+    = f.input :status, as: :boolean, required: true, inline_label: "(Uncheck this checkbox if you want to disable this product. Disabled products cann't be searchable to clients.)"
+    - if @product.deal_type == true
+      = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )", input_html: {checked: "checked"}
+      = f.input :days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], input_html: {multiple: "multiple", required: "required"}
+    - else
+      = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )"
+      = f.input :days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], input_html: {multiple: "multiple"}
     = f.button :submit, 'Update', :class => 'btn-primary'

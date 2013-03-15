@@ -25,8 +25,8 @@
     = f.input :description, as: :text,  required: true, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
     = f.input :tag_list, input_html: {class: "input-xlarge", rows: "5", required: "required"}   
     = f.input :photo, input_html: {required: "required"}    
-    = f.input :status, as: :boolean, required: true
+    = f.input :status, as: :boolean, required: true, input_html: {checked: "checked"}, inline_label: "(Uncheck this checkbox if you want to disable this product. Disabled products cann't be searchable to clients.)"
     = hidden_field_tag "product[client_id]", @client.id
     = f.input :deal_type, as: :boolean, inline_label: "( If it is a daily deal then tick this check box and select the applicable days below, or else uncheck it )"
-    = f.input :days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], input_html: {multiple: "multiple"}
+    = f.input :days, as: :select, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], include_blank: false, input_html: {multiple: "multiple"}
     = f.button :submit, 'Create', :class => 'btn-primary'
