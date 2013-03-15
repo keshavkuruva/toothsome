@@ -51,3 +51,54 @@ User.create([
 ], :without_protection => true )
 
 
+# encoding: utf-8
+
+Category.create([
+  { :name => nil, :description => nil, :created_at => nil, :updated_at => nil }
+], :without_protection => true )
+
+
+
+Client.create([
+  { :name => "KFC", :description => "  KFC food", :address_line1 => "Punjagutaa Rd", :address_line2 => "Somajiguda", :city => "hyderabad", :state => "AP", :country => "India", :postal_code => 500072, :email => "kfc@yahoo.com", :phone_no => "040-66051356", :created_at => "2013-03-13 09:38:11", :updated_at => "2013-03-13 09:38:11", :photo_file_name => nil, :photo_content_type => nil, :photo_file_size => nil, :photo_updated_at => nil }
+], :without_protection => true )
+
+
+
+DealDay.create([
+  { :name => nil, :product_id => nil, :created_at => nil, :updated_at => nil }
+], :without_protection => true )
+
+
+
+Product.create([
+  { :sku => "MEAL1234", :name => "KFC meal", :description => "  KFC meal", :status => false, :created_at => "2013-03-14 10:42:11", :updated_at => "2013-03-14 10:42:11", :client_id => 2, :photo_file_name => "ZingKongbox_Chicken.png", :photo_content_type => "image/png", :photo_file_size => 85540, :photo_updated_at => "2013-03-14 10:42:10", :deal_type => nil, :days => nil },
+  { :sku => "BG001", :name => "Burger", :description => "  KFC burger", :status => false, :created_at => "2013-03-14 11:24:31", :updated_at => "2013-03-14 13:39:19", :client_id => 2, :photo_file_name => "Chicken_Zinger.png", :photo_content_type => "image/png", :photo_file_size => 89630, :photo_updated_at => "2013-03-14 11:24:31", :deal_type => false, :days => "---\n- ''\n" },
+  { :sku => "GNG123", :name => "Veg Ginger", :description => "  test", :status => false, :created_at => "2013-03-14 11:25:45", :updated_at => "2013-03-14 11:25:45", :client_id => 2, :photo_file_name => "Veg_Zinger.png", :photo_content_type => "image/png", :photo_file_size => 91961, :photo_updated_at => "2013-03-14 11:25:45", :deal_type => nil, :days => nil },
+  { :sku => "ZNG001", :name => "Zing zong box", :description => "  zing zong box", :status => true, :created_at => "2013-03-14 11:32:21", :updated_at => "2013-03-14 13:40:38", :client_id => 2, :photo_file_name => "ZingKongbox_Chicken.png", :photo_content_type => "image/png", :photo_file_size => 85540, :photo_updated_at => "2013-03-14 11:32:20", :deal_type => true, :days => "---\n- ''\n" },
+  { :sku => "TW123", :name => "KFC twister", :description => "  KFC twister", :status => false, :created_at => "2013-03-14 12:24:02", :updated_at => "2013-03-14 12:24:02", :client_id => 2, :photo_file_name => "toasted_Twister.png", :photo_content_type => "image/png", :photo_file_size => 70736, :photo_updated_at => "2013-03-14 12:24:01", :deal_type => false, :days => nil }
+], :without_protection => true )
+
+
+
+ProductPrice.create([
+  { :product_id => 12, :client_id => 2, :price => 99.0, :discount => nil, :valid_from => "2013-03-14", :valid_to => "2013-03-15", :created_at => "2013-03-14 10:42:11", :updated_at => "2013-03-14 10:42:11" },
+  { :product_id => 13, :client_id => 2, :price => 45.0, :discount => 0, :valid_from => "2013-03-14", :valid_to => "2013-03-15", :created_at => "2013-03-14 11:24:31", :updated_at => "2013-03-14 11:24:31" },
+  { :product_id => 14, :client_id => 2, :price => 90.0, :discount => nil, :valid_from => "2013-03-14", :valid_to => "2013-03-14", :created_at => "2013-03-14 11:25:46", :updated_at => "2013-03-14 11:25:46" },
+  { :product_id => 15, :client_id => 2, :price => 177.0, :discount => 0, :valid_from => "2013-03-14", :valid_to => "2013-03-15", :created_at => "2013-03-14 11:32:21", :updated_at => "2013-03-14 13:40:38" },
+  { :product_id => 16, :client_id => 2, :price => 99.0, :discount => 0, :valid_from => "2013-03-14", :valid_to => "2013-03-14", :created_at => "2013-03-14 12:24:02", :updated_at => "2013-03-14 12:24:02" }
+], :without_protection => true )
+
+
+
+Role.create([
+  { :name => nil, :resource_id => nil, :resource_type => nil, :created_at => nil, :updated_at => nil }
+], :without_protection => true )
+
+
+
+User.create([
+  { :email => "sumanth.nitw@gmail.com", :encrypted_password => "$2a$10$tJCdcpXFBj7BVMRahfqGW.hGhMp53w0ycFwfKJz1CCk1g7n5xW8vm", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 4, :current_sign_in_at => "2013-03-13 03:34:45", :last_sign_in_at => "2013-03-12 17:29:40", :current_sign_in_ip => "127.0.0.1", :last_sign_in_ip => "127.0.0.1", :created_at => "2013-03-08 11:08:37", :updated_at => "2013-03-13 03:34:45", :name => "sumanth.nitw" }
+], :without_protection => true )
+
+
