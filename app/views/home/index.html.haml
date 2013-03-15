@@ -31,5 +31,16 @@
       .view-all-day-deals View all deals
   .span9
     #search_results
+      %ul.breadcrumb
+        %li
+          %a{:href => "#"} Best
+          %span.divider /
+        %li
+          %a{:href => "#"} Popular
+          %span.divider /
+        %li
+          %a{:href => "#"} Most Wanted
+          %span.divider /
+        %li.active Home
       //= render :partial => "products", :locals => {:product_prices => @product_prices}
       =render :partial => "products"
