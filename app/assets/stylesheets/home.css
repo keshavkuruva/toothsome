@@ -44,6 +44,16 @@
   font-weight:bold;
   color:#b00;
 }
+.b-close {
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: none;
+  font: bold 131% sans-serif;
+  right: -7px;
+  top: -7px;
+  background-color:#2b91af;
+  cursor:pointer;
+  color:white;
+}
 
 #slider .ui-slider-range { background: #e86537; }
 #slider .ui-slider-handle { border-color: #e86537; }

@@ -1,7 +1,7 @@
 %section
   - if @product_prices.blank?
-    %section
-      %h4 Sorry,no results found.
+    %section.well
+      %h4 0 results found for the selected price.
   - else
     - @product_prices.each_slice(3).to_a.each do |row|
       %div.row-fluid.well
