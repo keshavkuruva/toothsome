@@ -32,7 +32,6 @@ class ProductsController < ApplicationController
           d = DealDay.new(name: day)
           d.product_id = @product.id
           d.save!
-          puts "==========> #{d.product_id}"
         end
       end
       redirect_to products_path(:cid => @product.client_id)
@@ -48,6 +47,29 @@ class ProductsController < ApplicationController
   end
 
   def update
+    price_info = params[:product].delete(:product_price)
+    days_info = params[:product].delete(:days)
+    @product = Product.find(params[:id])
+    @product_price = @product.product_price
+    @product.update_attributes(params[:product])
+    @product_price.update_attributes(price_info)
+
+    if @product.deal_type == true
+        days_info.shift
+        @product.deal_days.destroy
+        days_info.each do |day|
+          d = DealDay.new(name: day)
+          d.product_id = @product.id
+          d.save!
+        end
+    end
+
+    if @product.valid? and @product_price.valid?
+      redirect_to products_path(:cid => @product.client_id), :notice => "Product updated"
+    else
+      redirect_to products_path(:cid => @product.client_id), :notice => "Unable to update the product"
+    end
+=begin
     @product_price_info = params[:product].delete(:product_price)
     @product = Product.find(params[:id])
     price_info = @product.product_price
@@ -58,6 +80,7 @@ class ProductsController < ApplicationController
     else
       redirect_to products_path(:cid => @product.client_id), :notice => "Unable to update the product"
     end
+=end
   end
 
   def destroy
