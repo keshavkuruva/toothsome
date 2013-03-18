@@ -15,3 +15,15 @@
 //= require jquery.ui.slider
 //= require bootstrap
 //= require_tree .
+
+
+$(function(){
+    if ( $(".rating-bar").length > 0 ) {   
+	$(".rating-bar").jRating({
+		step: true, 
+		rateMax: 5,
+		onSuccess: function(ele, rating){alert("Thank you for submitting your rating");},
+	        onError: function(ele, rating){alert("Unable to submit your rating, Please try later.");}
+        });
+    }
+})

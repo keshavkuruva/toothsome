@@ -24,4 +24,4 @@
                 %img{ :src => image_path("currency.gif")}
                 = product.product_price.price
 - unless @client.nil?
-  %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => product.client), :type => "button"} Add product
+  %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product

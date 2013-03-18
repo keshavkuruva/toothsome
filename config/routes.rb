@@ -1,7 +1,11 @@
 Toothsome::Application.routes.draw do
   get 'tags/:tag', to: 'home#index', as: :tag
   resources :clients
-  resources :products				   
+  resources :products do
+    member do
+      post :rating
+    end
+  end				   
 
   authenticated :user do
     root :to => 'home#index'

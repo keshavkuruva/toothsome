@@ -91,4 +91,8 @@ class ProductsController < ApplicationController
 
   def destroy
   end
+
+  def rating
+    render :text => "Ok", :layout => false
+  end
 end
