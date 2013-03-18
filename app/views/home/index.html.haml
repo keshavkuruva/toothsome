@@ -36,13 +36,19 @@
     #search_results
       %ul.breadcrumb
         %li
-          %a{:href => "#"} Best
+          %a{:href => products_path(type: "Best" )} Average
           %span.divider /
         %li
-          %a{:href => "#"} Popular
+          %a{:href => products_path(type: "Better")} Better
           %span.divider /
         %li
-          %a{:href => "#"} Most Wanted
+          %a{:href => products_path(type: "Best")} Best
+          %span.divider /
+        %li
+          %a{:href => products_path(type: "Most wanted")} Most wanted
+          %span.divider /
+        %li
+          %a{:href => products_path(type: "Awesome")} Awesome
           %span.divider /
         %li.active Home
       //= render :partial => "products", :locals => {:product_prices => @product_prices}
