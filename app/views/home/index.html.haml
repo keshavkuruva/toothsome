@@ -14,32 +14,41 @@
       #tag_cloud
         - tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| 
           = link_to tag.name, tag_path(tag.name), :class => css_class
-    .well
-      %span#current_week_day      
-      %ul.thumbnails
-        %li.span12
-          %a{:href => product_info_path(@today_product.id), :class => 'thumbnail button'}
-            - if @today_product.photo.exists?
-              = image_tag @today_product.photo.url(:medium)
-              %br
-              #caption
-                %span= @today_product.name
+    - unless @today_product.nil?
+      .well
+        %span#current_week_day
+          = Date.new.strftime("%A") + "'s deals"     
+        %ul.thumbnails
+          %li.span12
+            %a{:href => product_info_path(@today_product.id), :class => 'thumbnail button'}
+              - if @today_product.photo.exists?
+                = image_tag @today_product.photo.url(:medium)
                 %br
-                #price_info
-                  %img{ :src => image_path("currency.gif")}
-                  = @today_product.product_price.price
-      .view-all-day-deals View all deals
+                #caption
+                  %span= @today_product.name
+                  %br
+                  #price_info
+                    %img{ :src => image_path("currency.gif")}
+                    = @today_product.product_price.price
+        .view-all-day-deals
+          %a{:href => products_path(:for => "Today")} View all deals
   .span9
     #search_results
       %ul.breadcrumb
         %li
-          %a{:href => "#"} Best
+          %a{:href => products_path(type: "Average" )} Average
           %span.divider /
         %li
-          %a{:href => "#"} Popular
+          %a{:href => products_path(type: "Better")} Better
           %span.divider /
         %li
-          %a{:href => "#"} Most Wanted
+          %a{:href => products_path(type: "Best")} Best
+          %span.divider /
+        %li
+          %a{:href => products_path(type: "Most wanted")} Most wanted
+          %span.divider /
+        %li
+          %a{:href => products_path(type: "Awesome")} Awesome
           %span.divider /
         %li.active Home
       //= render :partial => "products", :locals => {:product_prices => @product_prices}

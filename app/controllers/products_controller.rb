@@ -2,7 +2,15 @@ class ProductsController < ApplicationController
 
   def index
     @client = Client.find(params[:cid]) unless params[:cid].blank?
-    @products = @client.nil? ? Product.all : @client.products
+    if !@client.nil?
+      @products = @client.products  
+    elsif !params[:for].blank?
+      @products = Product.joins(:deal_days).where("deal_days.name" => Date.new.strftime("%A"))
+    elsif !params[:type].blank?
+      @products = Product.joins(:products_ratings).where("products_ratings.rating" => params[:type])
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -84,5 +92,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def rating
+    ProductsRating.create(rating: params[:rating], product_id: params[:id])
+    render :text => "Ok", :layout => false
   end
 end
