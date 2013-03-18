@@ -64,10 +64,10 @@ $(function() {
        change:function(event,ui) {
          $('.min').text(ui.value);
                 $.ajax({
-                  url: 'home/search_by_price',
+                  url: 'home/product_search',
                   type: 'post',
                   dataType: "html",
-                  data: 'price_from=' + ui.value + ';price_to=' + $('.max').text(),
+                  data: 'type=by_price;price_from=' + ui.value + ';price_to=' + $('.max').text(),
                   beforeSend: function(xhr, settings) {
                     $('#search_results').hide();
                   },
@@ -92,6 +92,19 @@ $(function() {
                 transition: 'slideIn',
                  });
        return false;
+     });
+     $('#product_search').keypress(function(e) {
+       if( e.keyCode == 13 ) {
+         alert('bb');
+         $.ajax({
+           url:'/home/product_search',
+           type:'post',
+           data:'type=by_name;query=' + $('#product_search').val(),
+           success: function ( resp ) {
+             $('#search_results').html(resp);
+           }
+         });
+       }
      });
 
      $("span#current_week_day").html(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][(new Date()).getDay()] + "'s deals")
