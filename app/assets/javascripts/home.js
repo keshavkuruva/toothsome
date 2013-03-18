@@ -93,6 +93,4 @@ $(function() {
                  });
        return false;
      });
-
-     $("span#current_week_day").html(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][(new Date()).getDay()] + "'s deals")
 });

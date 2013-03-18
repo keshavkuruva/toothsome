@@ -2,7 +2,13 @@ class ProductsController < ApplicationController
 
   def index
     @client = Client.find(params[:cid]) unless params[:cid].blank?
-    @products = @client.nil? ? Product.all : @client.products
+    if !@client.nil?
+      @products = @client.products  
+    elsif !params[:for].blank?
+      @products = Product.joins(:deal_days).where("deal_days.name" => Date.new.strftime("%A"))
+    else
+      @products = Product.all
+    end
   end
 
   def show

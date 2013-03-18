@@ -3,9 +3,10 @@
     %li
       %a{:href => clients_path} Clients
       %span.divider /
-    %li
-      %a{:href => client_path(@client)} #{@client.name}
-      %span.divider /
+    - unless @client.nil?
+      %li
+        %a{:href => client_path(@client)} #{@client.name}
+        %span.divider /
     %li.active Products
 - @products.each_slice(4).to_a.each do |row|      
   %div.row-fluid.well
@@ -13,7 +14,7 @@
       - row.each do |product| 
         %li.span3
           .thumbnail
-            %a{:href => product_path(:id => product, :cid => @client)}          
+            %a{:href => product_path(:id => product, :cid => product.client)}          
               %img{"src" => "#{product.photo.url}"}
             %br
             #caption
@@ -22,4 +23,5 @@
               #price_info
                 %img{ :src => image_path("currency.gif")}
                 = product.product_price.price
-%a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
+- unless @client.nil?
+  %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => product.client), :type => "button"} Add product
