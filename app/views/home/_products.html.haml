@@ -18,3 +18,5 @@
                     #price_info
                       %img{ :src => image_path("currency.gif")}
                       = prod.price
+              .rating-bar-container
+                .rating-bar{"data-product" => "#{prod.product_id}", "data-id" => "rating-bar-#{prod.product_id}"} 
