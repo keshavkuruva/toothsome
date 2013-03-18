@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     else
       @product_prices = ProductPrice.includes(:products).find_by_sql("select * from clients c,products p,product_prices pp where c.id = pp.client_id and p.id = pp.product_id")
     end
+    @today_product = @product_prices.first.product
   end
 
   def search_by_price
