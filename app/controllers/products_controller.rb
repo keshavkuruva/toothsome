@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     elsif !params[:for].blank?
       @products = Product.joins(:deal_days).where("deal_days.name" => Date.new.strftime("%A"))
     elsif !params[:type].blank?
-      @products = Product.joins(:products_ratings).where("products_ratings.rating" => params[:type])
+      @products = Product.where rating: ProductsRating::VALID_RATINGS[params[:type]]
     else
       @products = Product.all
     end

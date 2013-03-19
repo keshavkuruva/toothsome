@@ -1,7 +1,7 @@
 class ProductsRating < ActiveRecord::Base
   attr_accessible :product_id, :rating
   belongs_to :product
-  
+  VALID_RATINGS = {"Average" => 1, "Better" => 2, "Best" => 3, "Most wanted" => 4, "Awesome" => 5}
   after_save :compute_product_rating
  
   def compute_product_rating
@@ -11,7 +11,7 @@ class ProductsRating < ActiveRecord::Base
       avg_rating = 0
     else
       sum = 0
-      valid_ratings.each_pair do |rating_label, rating_value|
+      VALID_RATINGS.each_pair do |rating_label, rating_value|
         rt = all_ratings.where rating: rating_label
         rt_count = rt.empty? ? 0 : rt.count
         sum += rt_count * rating_value
@@ -22,7 +22,4 @@ class ProductsRating < ActiveRecord::Base
     p.save!
   end
 
-  def valid_ratings    
-    {"Average" => 1, "Better" => 2, "Best" => 3, "Most wanted" => 4, "Awesome" => 5}
-  end
 end
