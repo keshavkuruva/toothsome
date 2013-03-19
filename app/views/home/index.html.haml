@@ -31,7 +31,7 @@
                     %img{ :src => image_path("currency.gif")}
                     = @today_product.product_price.price.to_i
         .view-all-day-deals
-          %a{:href => products_path(:for => "Today")} View all deals
+          %a{:href => "/deals-of-the-day"} View all deals
   .span9
     #search_results
       %ul.breadcrumb

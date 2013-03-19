@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
     @client = Client.find(params[:cid]) unless params[:cid].blank?
     if !@client.nil?
       @products = @client.products  
-    elsif !params[:for].blank?
-      @products = Product.joins(:deal_days).where("deal_days.name" => Date.new.strftime("%A"))
     elsif !params[:type].blank?
       @products = Product.where rating: ProductsRating::VALID_RATINGS[params[:type]]
     else
@@ -98,4 +96,10 @@ class ProductsController < ApplicationController
     rating = ProductsRating.create(rating: params[:rating], product_id: params[:id])
     render :text => "Ok", :layout => false
   end
+
+  def deals_of_the_day
+    @products = Product.joins(:deal_days).where("deal_days.name" => Date.new.strftime("%A"))
+    render :action => :index
+  end
+
 end

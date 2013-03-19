@@ -6,7 +6,7 @@ Toothsome::Application.routes.draw do
       post :rating
     end
   end				   
-
+  match "/deals-of-the-day" => "products#deals_of_the_day"
   authenticated :user do
     root :to => 'home#index'
   end
