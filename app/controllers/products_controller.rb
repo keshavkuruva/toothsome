@@ -24,26 +24,17 @@ class ProductsController < ApplicationController
   def create
     price_info = params[:product].delete(:product_price)
     days_info = params[:product].delete(:days)
+    days_info.shift
+    params[:product][:days] = days_info.join(",")    
     @product = Product.new(params[:product])
 
     @product_price = @product.build_product_price(price_info)
     @product_price.client_id = params[:product][:client_id]
 
-    if @product.valid? and @product_price.valid?
-      @product.save!
-      @product_price.save!
-      if @product.deal_type == true
-        days_info.shift
-        days_info.each do |day|
-          d = DealDay.new(name: day)
-          d.product_id = @product.id
-          d.save!
-        end
-      end
-      redirect_to products_path(:cid => @product.client_id)
-    else
-       @client = @product.client
-    end
+    @product.save!
+    @product_price.save!    
+    @product.attach_days(days_info) if @product.is_day_deal?
+    redirect_to products_path(:cid => @product.client_id), :notice => "Product has been created successfully"
   end
 
   def edit
@@ -55,38 +46,15 @@ class ProductsController < ApplicationController
   def update
     price_info = params[:product].delete(:product_price)
     days_info = params[:product].delete(:days)
+    days_info.shift
+    params[:product][:days] = days_info.join(",")
     @product = Product.find(params[:id])
+
     @product_price = @product.product_price
     @product.update_attributes(params[:product])
     @product_price.update_attributes(price_info)
-
-    if @product.deal_type == true
-        days_info.shift
-        @product.deal_days.destroy
-        days_info.each do |day|
-          d = DealDay.new(name: day)
-          d.product_id = @product.id
-          d.save!
-        end
-    end
-
-    if @product.valid? and @product_price.valid?
-      redirect_to products_path(:cid => @product.client_id), :notice => "Product updated"
-    else
-      redirect_to products_path(:cid => @product.client_id), :notice => "Unable to update the product"
-    end
-=begin
-    @product_price_info = params[:product].delete(:product_price)
-    @product = Product.find(params[:id])
-    price_info = @product.product_price
-    product = @product.update_attributes(params[:product])
-    price_info = price_info.update_attributes(@product_price_info)
-    if product and price_info
-      redirect_to products_path(:cid => @product.client_id), :notice => "Product updated"
-    else
-      redirect_to products_path(:cid => @product.client_id), :notice => "Unable to update the product"
-    end
-=end
+    @product.attach_days(days_info) if @product.is_day_deal?
+    redirect_to products_path(:cid => @product.client_id), :notice => "Product info has been updated successfully"
   end
 
   def destroy

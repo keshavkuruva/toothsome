@@ -8,4 +8,17 @@ class Product < ActiveRecord::Base
   has_attached_file :photo, :styles => {:thumb=> "100x100#", :small  => "150x150>", :medium => "300x300>", :large => "400x400>" }
   has_many :deal_days
   has_many :products_ratings
+
+  def is_day_deal?
+    self.deal_type == true
+  end
+
+  def attach_days(days_info)
+    self.deal_days.destroy
+    days_info.each do |day|
+      d = DealDay.new(name: day)
+      d.product_id = self.id
+      d.save!
+   end
+  end
 end
