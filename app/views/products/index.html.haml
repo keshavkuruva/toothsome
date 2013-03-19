@@ -22,8 +22,8 @@
               %br
               #price_info
                 %img{ :src => image_path("currency.gif")}
-                = product.product_price.price
+                = product.product_price.price.to_i
           .rating-bar-container
-            .rating-bar{"data-product" => "#{product.id}", "data-id" => "rating-bar-#{product.id}"}
-- unless @client.nil?
-  %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
+            .rating-bar{"data-average" => "#{product.rating}", "data-product" => "#{product.id}", "data-id" => "rating-bar-#{product.id}"}
+    - unless @client.nil?
+      %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
