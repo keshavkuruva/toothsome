@@ -19,4 +19,4 @@
                       %img{ :src => image_path("currency.gif")}
                       = prod.price.to_i
               .rating-bar-container
-                .rating-bar{"data-product" => "#{prod.product_id}", "data-id" => "rating-bar-#{prod.product_id}"} 
+                .rating-bar{"data-average" => "#{prod.product.rating}", "data-product" => "#{prod.product_id}", "data-id" => "rating-bar-#{prod.product_id}"} 

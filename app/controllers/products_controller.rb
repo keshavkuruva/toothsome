@@ -95,7 +95,7 @@ class ProductsController < ApplicationController
   end
 
   def rating
-    ProductsRating.create(rating: params[:rating], product_id: params[:id])
+    rating = ProductsRating.create(rating: params[:rating], product_id: params[:id])
     render :text => "Ok", :layout => false
   end
 end
