@@ -8,6 +8,8 @@ class Revertcolumn < ActiveRecord::Migration
      end
      execute <<-SQL
        alter table clients modify id int(11) auto_increment;
+     SQL
+     execute <<-SQL
        alter table products modify id int(11) auto_increment;
      SQL
   end
