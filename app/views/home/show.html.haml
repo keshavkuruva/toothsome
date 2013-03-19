@@ -1,38 +1,39 @@
 .container
-  %span.b-close X
-  .span12
-    .row-fluid
-      .span4
-        .well
-          = image_tag @product_prices.product.photo.url(:medium)
-          #caption
-            %span= @product_prices.product.name
-            #price_info
-              %img{ :src => image_path("currency.gif")}
-              = @product_prices.price
-      .row
-        .span5.offset1
-          .well
-            .row-fluid
-              %h3 Address
-              %address
-                %strong= @product_prices.client.name
-                %br
-                = @product_prices.client.address_line1
-                - if @product_prices.client.address_line2
-                  = @product_prices.client.address_line2
-                %br 
-                = @product_prices.client.city + ","
-                = @product_prices.client.state 
-                %br
-                = @product_prices.client.country + ' - '
-                = @product_prices.client.postal_code
-                - if @product_prices.client.phone_no
-                  %br
-                  %abbr{"title" => "Phone"} P:
-                  = @product_prices.client.phone_no
-              - if @product_prices.client.email
-                %address
-                  %strong Email
-                  %br
-                  %a{ :href => "mailto:#" }= @product_prices.client.email
+  %table.prod_popup
+    %tr
+      %td
+      %td{:style => "float:right"}
+        %span.b-close X
+    %tr
+      %td
+        = image_tag @product_prices.product.photo.url(:medium)
+        #caption
+          %span= @product_prices.product.name
+          #price_info
+            %img{ :src => image_path("currency.gif")}
+            = @product_prices.price
+          .rating-bar-container
+            .rating-bar{"data-product" => "#{@product_prices.product_id}", "data-id" => "rating-bar-#{@product_prices.product_id}", :style => 'padding-left:50px'}
+      %td
+        %h3 Address
+        %address
+          %strong= @product_prices.client.name
+          %br
+          = @product_prices.client.address_line1
+          - if @product_prices.client.address_line2
+            = @product_prices.client.address_line2
+          %br
+          = @product_prices.client.city + ","
+          = @product_prices.client.state
+          %br
+          = @product_prices.client.country + ' - '
+          = @product_prices.client.postal_code
+          - if @product_prices.client.phone_no
+            %br
+            %abbr{"title" => "Phone"} P:
+            = @product_prices.client.phone_no
+        - if @product_prices.client.email
+          %address
+            %strong Email
+            %br
+            %a{ :href => "mailto:#" }= @product_prices.client.email

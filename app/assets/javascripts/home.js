@@ -90,12 +90,21 @@ $(function() {
                 speed: 450,
                 position:["50px","50px"],
                 transition: 'slideIn',
-                 });
+                },
+                function () {
+                  if ( $(".rating-bar").length > 0 ) {
+                     $(".rating-bar").jRating({
+                       step: true,
+                       rateMax: 5,
+                       onSuccess: function(ele, rating){alert("Thank you for submitting your rating");},
+                             onError: function(ele, rating){alert("Unable to submit your rating, Please try later.");}
+                     });
+                  }
+                });
        return false;
      });
      $('#product_search').keypress(function(e) {
        if( e.keyCode == 13 ) {
-         alert('bb');
          $.ajax({
            url:'/home/product_search',
            type:'post',
@@ -106,6 +115,7 @@ $(function() {
          });
        }
      });
+     
 
      $("span#current_week_day").html(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][(new Date()).getDay()] + "'s deals")
 });

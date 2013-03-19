@@ -20,7 +20,7 @@ class HomeController < ApplicationController
 
   def product_search
     @product_prices = []
-
+    
     if params[:type] == 'by_price'
       price_from = params[:price_from]
       price_to = params[:price_to]

@@ -44,15 +44,24 @@
   font-weight:bold;
   color:#b00;
 }
+.prod_popup {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+  -webkit-user-select: none;
+  background-color: white;
+  border: 1px solid rgb(171, 171, 171);
+}
 .b-close {
   border-radius: 7px 7px 7px 7px;
-  box-shadow: none;
-  font: bold 131% sans-serif;
+  font: bold 111% sans-serif;
   right: -7px;
   top: -7px;
-  background-color:#2b91af;
   cursor:pointer;
-  color:white;
+  float:right;
 }
 
 #slider .ui-slider-range { background: #e86537; }
