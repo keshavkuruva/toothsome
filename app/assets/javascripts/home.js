@@ -92,14 +92,21 @@ $(function() {
                 transition: 'slideIn',
                 },
                 function () {
-                  if ( $(".rating-bar").length > 0 ) {
-                     $(".rating-bar").jRating({
-                       step: true,
-                       rateMax: 5,
-                       onSuccess: function(ele, rating){alert("Thank you for submitting your rating");},
-                             onError: function(ele, rating){alert("Unable to submit your rating, Please try later.");}
-                     });
-                  }
+                  var rating_arr = ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ];
+                  $('.prod_star').raty({ starOff : '/assets/star-off.png',
+                                    starHalf : '/assets/star-half.png',
+                                    starOn : '/assets/star-on.png',
+                                    hints : ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ],
+                                    click: function (score,evt) {
+                                      $.ajax({
+                                        type:'post',
+                                        url:"/products/" + $(this).attr('data-product') + "/rating",
+                                        data:"rating=" + rating_arr[score-1],
+                                        success:function(data,res) {},
+                                        error:function(obj) { if(obj.status == 401 ) { window.location = '/users/sign_in'} }
+                                      });
+                                    }
+                                 });
                 });
        return false;
      });

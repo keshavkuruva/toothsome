@@ -12,8 +12,7 @@
           #price_info
             %img{ :src => image_path("currency.gif")}
             = @product_prices.price
-          .rating-bar-container
-            .rating-bar{"data-product" => "#{@product_prices.product_id}", "data-id" => "rating-bar-#{@product_prices.product_id}", :style => 'padding-left:50px'}
+          .prod_star{"data-product" => "#{@product_prices.product_id}"}
       %td
         %h3 Address
         %address

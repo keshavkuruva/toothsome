@@ -1,5 +1,5 @@
 class ProductsRating < ActiveRecord::Base
-  attr_accessible :product_id, :rating
+  attr_accessible :product_id, :rating, :user_id
   belongs_to :product
   VALID_RATINGS = {"Average" => 1, "Better" => 2, "Best" => 3, "Most wanted" => 4, "Awesome" => 5}
   after_save :compute_product_rating

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318100631) do
+ActiveRecord::Schema.define(:version => 20130319070416) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(:version => 20130318100631) do
     t.string   "name"
     t.text     "description"
     t.boolean  "status"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "client_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130318100631) do
     t.datetime "photo_updated_at"
     t.boolean  "deal_type"
     t.string   "days"
+    t.integer  "rating",             :default => 0
   end
 
   create_table "products_categories", :force => true do |t|

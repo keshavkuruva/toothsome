@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+ before_filter :authenticate_user!, :only => :rating
   def index
     @client = Client.find(params[:cid]) unless params[:cid].blank?
     if !@client.nil?
@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
   end
 
   def rating
-    rating = ProductsRating.create(rating: params[:rating], product_id: params[:id])
+    rating = ProductsRating.create(rating: params[:rating], product_id: params[:id],user_id: session["warden.user.user.key"][1][0])
     render :text => "Ok", :layout => false
   end
 
