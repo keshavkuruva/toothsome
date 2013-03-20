@@ -64,6 +64,20 @@
   float:right;
 }
 
+.close-btn {
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: none;
+  font: bold 131% sans-serif;
+  background-color:#2b91af;
+  cursor:pointer;
+  color:white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  display: none;
+}
+
 #slider .ui-slider-range { background: #e86537; }
 #slider .ui-slider-handle { border-color: #e86537; }
 

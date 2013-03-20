@@ -12,8 +12,10 @@
   %div.row-fluid.well
     %ul.thumbnails
       - row.each do |product| 
-        %li.span3
+        %li.span3{"data-product-admin" => "true"}
           .thumbnail
+            - unless @client.nil?
+              .close-btn{"title" => "Delete this product", "data-url" => "#{product_path(product)}"} X
             %a{:href => product_path(:id => product, :cid => product.client)}          
               %img{"src" => "#{product.photo.url}"}
             %br
@@ -25,5 +27,6 @@
                 = product.product_price.price.to_i
           .rating-bar-container
             .rating-bar{"data-average" => "#{product.rating}", "data-product" => "#{product.id}", "data-id" => "rating-bar-#{product.id}"}
-    - unless @client.nil?
-      %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
+- unless @client.nil?
+  .row-fluid.well
+    %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
