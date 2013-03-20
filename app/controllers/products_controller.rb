@@ -58,6 +58,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render :text => "Ok", :layout => false
   end
 
   def rating

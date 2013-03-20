@@ -13,3 +13,25 @@ $ ->
   if $("#date_from_field").length > 0
     new JsDatePick({useMode:2, target:"date_from_field", dateFormat:"%Y-%m-%d"});
     new JsDatePick({useMode:2, target:"date_to_field", dateFormat:"%Y-%m-%d"});
+
+  $("li[data-product-admin]").on "mouseover", ->
+    $(this).find(".close-btn").show()
+
+  $("li[data-product-admin]").on "mouseout", ->
+    $(this).find(".close-btn").hide()
+
+  $("li[data-product-admin] .close-btn").on "click", ->
+    url = $(this).attr "data-url"
+    current_element = $ this
+    $.ajax
+      type: 'delete'
+      url: url
+      success: (res) ->
+        current_element.parent().parent().fadeOut
+          duration: 300
+          complete: ->
+            current_element.parent().parent().parent().append $("ul.thumbnails:last li:first") if $("ul.thumbnails").length > 1
+            current_element.parent().parent().remove()
+            $("ul.thumbnails:last").parent().remove() if $("ul.thumbnails:last li").length == 0
+      error: ->
+        alert "Something has gone wrong. Please try latter."
