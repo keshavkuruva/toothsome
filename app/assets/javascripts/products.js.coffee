@@ -27,11 +27,11 @@ $ ->
       type: 'delete'
       url: url
       success: (res) ->
-        current_element.parent().parent().fadeOut
+        current_element.parents().eq(1).fadeOut
           duration: 300
           complete: ->
-            current_element.parent().parent().parent().append $("ul.thumbnails:last li:first") if $("ul.thumbnails").length > 1
-            current_element.parent().parent().remove()
+            current_element.parents().eq(2).append $("ul.thumbnails:last li:first") if $("ul.thumbnails").length > 1
+            current_element.parents().eq(1).remove()
             $("ul.thumbnails:last").parent().remove() if $("ul.thumbnails:last li").length == 0
       error: ->
         alert "Something has gone wrong. Please try latter."
