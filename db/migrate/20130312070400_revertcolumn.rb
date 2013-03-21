@@ -6,12 +6,9 @@ class Revertcolumn < ActiveRecord::Migration
      change_table :clients do |t|
          t.rename :client_id, :id
      end
-     execute <<-SQL
-       alter table clients modify id int(11) auto_increment;
-     SQL
-     execute <<-SQL
-       alter table products modify id int(11) auto_increment;
-     SQL
+
+     change_column :clients, :id, :integer, :auto_increment => 'true'
+     change_column :clients, :id, :integer, :auto_increment => true
   end
 
   def down
