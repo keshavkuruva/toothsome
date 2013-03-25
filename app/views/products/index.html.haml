@@ -1,8 +1,13 @@
 %div
   %ul.breadcrumb.row-fluid
-    %li
-      %a{:href => clients_path} Clients
-      %span.divider /
+    - if params[:type].blank?
+      %li
+        %a{:href => clients_path} Clients
+        %span.divider /
+    - else
+      %li
+        %a{:href => root_path} Home
+        %span.divider /
     - unless @client.nil?
       %li
         %a{:href => client_path(@client)} #{@client.name}
