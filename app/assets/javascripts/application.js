@@ -28,4 +28,7 @@ $(function(){
                     hints : ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ],
                     click: function (score,evt) { alert(score);}
                  });
+
+  $("input#product_search").attr("data-city", ""+geoip_city())
+  $("input#product_search").attr("placeholder", "Search deals in "+geoip_city())
 })

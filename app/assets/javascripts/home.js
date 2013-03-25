@@ -6,7 +6,7 @@ $(function() {
               return $.ajax({
                 url: $('#product_search').data('link'),
                      type: 'post',
-                     data: { query: query },
+		     data: { query: query, city: $('#product_search').data('city') },
                      dataType: 'json',
                      success: function (result) {
                        var resultList = result.map(function (item) {
@@ -116,7 +116,7 @@ $(function() {
          $.ajax({
            url:'/home/product_search',
            type:'post',
-           data:'type=by_name;query=' + $('#product_search').val(),
+	   data:'type=by_name;query=' + $('#product_search').val()+';city='+$('#product_search').data('city'),
            success: function ( resp ) {
              $('#search_results').html(resp);
            }

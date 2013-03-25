@@ -26,14 +26,14 @@ class HomeController < ApplicationController
       price_to = params[:price_to]
       @product_prices = ProductPrice.includes(:products).find_by_sql(["select * from clients c,products p,product_prices pp where c.id = pp.client_id and p.id = pp.product_id and pp.price >= ? and pp.price <= ? ",price_from,price_to]) 
     elsif params[:type] == 'by_name' 
-      @product_prices = ProductPrice.includes(:products).find_by_sql(["select * from clients c,products p,product_prices pp where c.id = pp.client_id and p.id = pp.product_id and p.name like ?", "%#{params[:query]}%"])
+      @product_prices = ProductPrice.includes(:product, :client).all(:conditions => ["products.name like ? and clients.city like ?", "%#{params[:query]}%", "%#{params[:city]}"])
     end
 
     render :layout => false if request.xhr?
   end
 
   def search_products
-    @products = Product.all(:conditions => ["name like ?", "%#{params[:query]}%"])
+    @products = Product.includes(:client).all(:conditions => ["products.name like ? and clients.city like ?", "%#{params[:query]}%", "%#{params[:city]}"])
     respond_to do |format|
       format.json { render :json => @products.as_json(:only => [:name])}
     end
