@@ -7,13 +7,15 @@
     %tr
       %td
         = image_tag @product_prices.product.photo.url(:medium)
+        %br
         #caption
           %span= @product_prices.product.name
           #price_info
             %img{ :src => image_path("currency.gif")}
             = @product_prices.price
           .prod_star{"data-product" => "#{@product_prices.product_id}"}
-      %td
+      %td{ :style => 'width:50%'}
+        %font{:size => 3,:color => '#004b91'}= @product_prices.product.description
         %h3 Address
         %address
           %strong= @product_prices.client.name

@@ -29,4 +29,4 @@ gem 'jquery-ui-rails'
 gem "seed_dump", "~> 0.4.2"
 gem 'acts-as-taggable-on'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-
+gem 'factory_girl'

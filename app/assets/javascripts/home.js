@@ -97,6 +97,7 @@ $(function() {
                                     starHalf : '/assets/star-half.png',
                                     starOn : '/assets/star-on.png',
                                     hints : ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ],
+                                    width : false,
                                     click: function (score,evt) {
                                       $.ajax({
                                         type:'post',

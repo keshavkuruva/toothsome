@@ -1,4 +1,5 @@
 require 'spec_helper'
+FactoryGirl.find_definitions
 
 describe UsersController do
 

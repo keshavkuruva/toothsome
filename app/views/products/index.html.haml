@@ -25,8 +25,7 @@
               #price_info
                 %img{ :src => image_path("currency.gif")}
                 = product.product_price.price.to_i
-          .rating-bar-container
-            .rating-bar{"data-average" => "#{product.rating}", "data-product" => "#{product.id}", "data-id" => "rating-bar-#{product.id}"}
+              .star{"data-score" => "#{product.rating}" }
 - unless @client.nil?
   .row-fluid.well
     %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => new_product_path(:cid => @client), :type => "button"} Add product
