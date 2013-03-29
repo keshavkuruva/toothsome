@@ -126,4 +126,12 @@ $(function() {
      
 
      $("span#current_week_day").html(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][(new Date()).getDay()] + "'s deals")
+
+     $("#top-site-label").on('mouseover', function(){
+	$(this).find("ul.dropdown-menu").show();
+     });
+
+     $("#top-site-label").on('mouseout', function(){
+	$(this).find("ul.dropdown-menu").hide();
+     });
 });
