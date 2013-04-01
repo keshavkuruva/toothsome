@@ -7,6 +7,7 @@ Toothsome::Application.routes.draw do
     end
   end				   
   match "/deals-of-the-day" => "products#deals_of_the_day"
+  match "/about" => "home#about", as: :about_page
   authenticated :user do
     root :to => 'home#index'
   end

@@ -88,3 +88,12 @@ span#current_week_day{font-size: 16px;color: #dd4814;}
 
 .breadcrumb.row-fluid{padding: 8px 20px;}
 body{background-attachment: fixed;}
+
+#top-site-label ul.dropdown-menu {
+  top: 38px;
+}
+
+#top-site-label ul.dropdown-menu li {
+  padding-left: 10px;
+  padding-right: 10px;
+}

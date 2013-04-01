@@ -57,4 +57,8 @@ class HomeController < ApplicationController
     @product_prices = ProductPrice.includes(:product,:client).find(params[:id])
     render :layout => false if request.xhr?
   end
+
+  def about
+
+  end
 end
