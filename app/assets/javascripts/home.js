@@ -13,6 +13,7 @@ $(function() {
                          var aItem = {name: item.name };
                          return JSON.stringify(aItem);
                        });
+                       resultList.unshift(JSON.stringify({name : query}));
 
                        return process(resultList);
 

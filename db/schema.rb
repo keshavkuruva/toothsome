@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319070416) do
+ActiveRecord::Schema.define(:version => 20130328115253) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -102,6 +102,13 @@ ActiveRecord::Schema.define(:version => 20130319070416) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "search_histories", :id => false, :force => true do |t|
+    t.string   "keyword",     :default => "", :null => false
+    t.integer  "user_id",     :default => 0,  :null => false
+    t.datetime "searched_on"
+    t.integer  "popularity"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
