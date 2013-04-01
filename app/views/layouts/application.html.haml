@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    %link{:rel => "icon", :type => "image/x-icon", :href => "/assets/favicon.ico"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Toothsome"
       %meta{:content => content_for?(:description) ? yield(:description) : "Toothsome", :name => "description"}
