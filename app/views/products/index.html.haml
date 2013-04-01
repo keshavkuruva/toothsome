@@ -1,6 +1,6 @@
 %div
   %ul.breadcrumb.row-fluid
-    - if params[:type].blank?
+    - if !@client.nil?
       %li
         %a{:href => clients_path} Clients
         %span.divider /
@@ -21,8 +21,11 @@
           .thumbnail
             - unless @client.nil?
               .close-btn{"title" => "Delete this product", "data-url" => "#{product_path(product)}"} X
-            %a{:href => product_path(:id => product, :cid => product.client)}          
-              %img{"src" => "#{product.photo.url}"}
+              %a{:href => product_path(:id => product, :cid => product.client)}          
+                %img{"src" => "#{product.photo.url}"}
+            - else
+              %a{:href => product_info_path(product.product_price.id), :class => 'button', :style => "text-decoration: none"}
+                %img{"src" => "#{product.photo.url}"}
             %br
             #caption
               %span= product.name
