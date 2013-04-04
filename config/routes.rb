@@ -5,6 +5,9 @@ Toothsome::Application.routes.draw do
     member do
       post :rating
     end
+    collection do
+      get :filter_by_rating
+    end
   end				   
   match "/deals-of-the-day" => "products#deals_of_the_day"
   match "/about" => "home#about", as: :about_page

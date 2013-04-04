@@ -1,0 +1,53 @@
+%ul.breadcrumb.row-fluid.top-links
+  %li
+    - unless params[:type] == 'Average'
+      %a{:href => filter_by_rating_products_path(type: "Average" )} Average
+    - else
+      Average
+    %span.divider /
+  %li
+    - unless params[:type] == 'Better'
+      %a{:href => filter_by_rating_products_path(type: "Better")} Better
+    - else
+      Better
+    %span.divider /
+  %li
+    - unless params[:type] == 'Best'
+      %a{:href => filter_by_rating_products_path(type: "Best")} Best
+    - else
+      Best
+    %span.divider /
+  %li
+    - unless params[:type] == 'Most wanted'
+      %a{:href => filter_by_rating_products_path(type: "Most wanted")} Most wanted
+    - else
+      Most wanted
+    %span.divider /
+  %li
+    - unless params[:type] == 'Awesome'
+      %a{:href => filter_by_rating_products_path(type: "Awesome")} Awesome
+    - else
+      Awesome
+    %span.divider /
+  %li
+    %a{:href => root_path, :class => "home"} Home
+.section
+  - if @products.empty?
+    %h4 0 results found for the selected price.
+  - else
+    - @products.each_slice(3).to_a.each do |row|
+      %div.row-fluid.well
+        %ul.thumbnails
+          - row.each do |p|
+            %li.span4
+              %a{:href => product_info_path(p.product_price.id) , :class => 'thumbnail button', :style => "text-decoration: none"}
+                - if p.photo.exists?
+                  = image_tag p.photo.url(:medium)
+                  %br
+                  #caption
+                    %span= p.name
+                    %br
+                    #price_info
+                      %img{ :src => image_path("currency.gif")}
+                      = p.product_price.price.to_i
+                    .star{"data-score" => "#{p.rating}" }

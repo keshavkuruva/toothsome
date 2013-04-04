@@ -34,21 +34,21 @@
           %a{:href => "/deals-of-the-day"} View all deals
   .span9
     #search_results
-      %ul.breadcrumb.row-fluid
+      %ul.breadcrumb.row-fluid.top-links
         %li
-          %a{:href => products_path(type: "Average" )} Average
+          %a{:href => filter_by_rating_products_path(type: "Average" )} Average
           %span.divider /
         %li
-          %a{:href => products_path(type: "Better")} Better
+          %a{:href => filter_by_rating_products_path(type: "Better")} Better
           %span.divider /
         %li
-          %a{:href => products_path(type: "Best")} Best
+          %a{:href => filter_by_rating_products_path(type: "Best")} Best
           %span.divider /
         %li
-          %a{:href => products_path(type: "Most wanted")} Most wanted
+          %a{:href => filter_by_rating_products_path(type: "Most wanted")} Most wanted
           %span.divider /
         %li
-          %a{:href => products_path(type: "Awesome")} Awesome
+          %a{:href => filter_by_rating_products_path(type: "Awesome")} Awesome
           %span.divider /
         %li.active Home
       //= render :partial => "products", :locals => {:product_prices => @product_prices}

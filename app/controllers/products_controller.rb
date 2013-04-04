@@ -73,4 +73,9 @@ class ProductsController < ApplicationController
     render :action => :index
   end
 
+  def filter_by_rating
+    @products = Product.where rating: ProductsRating::VALID_RATINGS[params[:type]]
+    render :layout => false
+  end
+
 end

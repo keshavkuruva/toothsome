@@ -135,4 +135,27 @@ $(function() {
      $("#top-site-label").on('mouseout', function(){
 	$(this).find("ul.dropdown-menu").hide();
      });
+
+     bind_event_handler();
 });
+
+function bind_event_handler(){
+    $("ul.top-links li a").on('click', function(event){
+            if( $(this).hasClass('home') ){
+		return true;
+            }
+	    event.preventDefault();
+	    var el = $(this)
+	    $("body").css('cursor', 'progress');
+	    el.css('cursor', 'progress');
+	    $.ajax({
+		    url: el.attr("href"),
+			success: function(result){
+			$("#search_results").html(result);
+			$("body").css('cursor', 'default');
+			el.css('cursor', 'pointer');
+                        bind_event_handler();
+		    }
+		});
+	});
+}
