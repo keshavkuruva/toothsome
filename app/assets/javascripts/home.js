@@ -150,6 +150,7 @@ $(function() {
 		    $("#search_results").html(result);
                     $("body").css('cursor', 'default');
 		    el.css('cursor', 'pointer');
+                    refresh_rating_bars();
 		 }
 	    });
      });

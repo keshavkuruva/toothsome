@@ -18,6 +18,8 @@
 
 
 $(function(){
+  refresh_rating_bars();
+  /*
   $('.star').raty({ starOff : '/assets/star-off.png',
                     starHalf : '/assets/star-half.png',
                     starOn : '/assets/star-on.png',
@@ -28,7 +30,20 @@ $(function(){
                     hints : ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ],
                     click: function (score,evt) { alert(score);}
                  });
-
+  */
   $("input#product_search").attr("data-city", ""+geoip_city())
   $("input#product_search").attr("placeholder", "Search deals in "+geoip_city())
 })
+
+function refresh_rating_bars(){
+    $('.star').raty({ starOff : '/assets/star-off.png',
+		starHalf : '/assets/star-half.png',
+		starOn : '/assets/star-on.png',
+		readOnly : true,
+		score: function() {
+		return $(this).attr('data-score');
+	    },
+		hints : ["Average" , "Better" , "Best" , "Most wanted" , "Awesome" ],
+		click: function (score,evt) { alert(score);}
+	});
+}
