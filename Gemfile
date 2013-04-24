@@ -6,14 +6,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-group :development do
-  gem "mysql2", ">= 0.3.11"
-end
 
-group :production do
-  gem "pg"
-  gem "activerecord-postgresql-adapter"
-end
+gem "mysql2", ">= 0.3.11"
 
 gem "haml-rails", ">= 0.4"
 gem "html2haml", ">= 1.0.1", :group => :development
