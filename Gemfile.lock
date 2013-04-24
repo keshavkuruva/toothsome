@@ -33,6 +33,8 @@ GEM
       activesupport (= 3.2.13.rc2)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.2.13.rc2)
       activemodel (= 3.2.13.rc2)
       activesupport (= 3.2.13.rc2)
@@ -129,6 +131,7 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -211,6 +214,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgresql-adapter
   acts-as-taggable-on
   better_errors (>= 0.6.0)
   binding_of_caller (>= 0.7.1)
@@ -231,6 +235,7 @@ DEPENDENCIES
   machinist (>= 2.0)
   mysql2 (>= 0.3.11)
   paperclip!
+  pg
   quiet_assets (>= 1.0.1)
   rails (= 3.2.13.rc2)
   rolify (>= 3.2.0)
